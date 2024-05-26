@@ -1,0 +1,24 @@
+name: Update values.yaml
+
+on:
+  repository_dispatch:
+    types: [update-values]
+
+jobs:
+  update-values:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Update values.yaml
+        run: |
+          sed -i "s/tag: .*/tag: ${GITHUB_EVENT.client_payload.tag}/" charts/k8s-express-test/values.yaml
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "Update tag in values.yaml"
+          git push
