@@ -1,0 +1,15 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/kcearns/k8s-express-test/k8s-express-test
+  tag: 47e791a
+  pullPolicy: IfNotPresent
+
+service:
+  name: k8s-express-test-service
+  type: ClusterIP
+  port: 3000
+  targetPort: 3000
+
+env:
+  name: dev
