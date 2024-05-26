@@ -3,4 +3,4 @@ name: k8s-express-test
 description: A Helm chart for K8s Express Test
 type: application
 version: 0.1.0
-appVersion: "47e791a"
+appVersion: "1.0.0"
