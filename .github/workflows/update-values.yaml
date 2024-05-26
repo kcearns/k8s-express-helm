@@ -14,7 +14,9 @@ jobs:
 
       - name: Update values.yaml
         run: |
-          sed -i "s/tag: .*/tag: ${GITHUB_EVENT.client_payload.tag}/" charts/k8s-express-test/values.yaml
+          sed -i "s/tag: .*/tag: ${TAG}/" charts/k8s-express-test/values.yaml
+        env:
+          TAG: ${{ github.event.client_payload.tag }}
 
       - name: Commit and push changes
         run: |
