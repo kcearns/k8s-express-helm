@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: ghcr.io/kcearns/k8s-express-test/k8s-express-test
-  tag: 196312c
+  tag: 0c06562
   pullPolicy: IfNotPresent
 
 service:
